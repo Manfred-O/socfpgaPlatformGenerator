@@ -227,6 +227,29 @@ from datetime import datetime
 from datetime import timedelta
 import mmap
 
+import stat
+import distutils.dir_util
+
+# folder path
+src_path = r"/mnt/c/Users/Manfr/source/quartus_projects/"    #Path/Location of the source directory
+dst_path = os.getcwd()
+
+# list to store files
+res = []
+
+# Iterate directory
+for path in os.listdir(src_path):
+    # check if current path is a file
+    if os.path.isfile(os.path.join(src_path, path)):
+        res.append(path)
+print(res)
+
+print('copy files from ' + src_path + ' to ' + dst_path + "\n")
+distutils.dir_util.copy_tree(src_path, dst_path)
+
+print('Copied all - completed' + "\n")
+
+
 try:
     from LinuxBootImageFileGenerator.LinuxBootImageGenerator import Partition,BootImageCreator
 except ModuleNotFoundError as ex:
