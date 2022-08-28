@@ -232,7 +232,8 @@ import distutils.dir_util
 
 # folder path
 src_path = r"/mnt/c/Users/Manfr/source/quartus_projects/"    #Path/Location of the source directory
-dst_path = os.getcwd()
+cwd = os.getcwd()
+dst_path = os.chdir('../')
 
 # list to store files
 res = []
