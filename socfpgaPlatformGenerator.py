@@ -232,8 +232,10 @@ import distutils.dir_util
 
 # folder path
 src_path = r"/mnt/c/Users/Manfr/source/quartus_projects/"    #Path/Location of the source directory
-cwd = os.getcwd()
-dst_path = os.chdir('../')
+cur_path = os.getcwd()
+
+os.chdir('..')
+dst_path = os.getcwd()
 
 # list to store files
 res = []
@@ -249,6 +251,10 @@ print('copy files from ' + src_path + ' to ' + dst_path + "\n")
 distutils.dir_util.copy_tree(src_path, dst_path)
 
 print('Copied all - completed' + "\n")
+
+os.chdir(cur_path)
+
+print('current path', os.getcwd())
 
 
 try:
